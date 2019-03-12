@@ -28,3 +28,7 @@ selectiveCopy.py
 
 walk.py
 # walk through the tree folder.
+
+mapIt.py
+# Launches a map in the browser using an address from the 
+# command line or clipboard.
