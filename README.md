@@ -32,3 +32,7 @@ walk.py
 mapIt.py
 - Launches a map in the browser using an address from the 
 - command line or clipboard.
+
+weather.py
+- weather.py opens by default the local weather when I run it
+- or accepts command line with the city or country name.
