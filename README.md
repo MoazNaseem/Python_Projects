@@ -40,3 +40,6 @@ weather.py
 lucky.py
 - lucky.py automatically opens a browser with
 - all the top search results in new tabs
+
+downloadXkcd.py
+- downloads all the comics in xkcd.com.
