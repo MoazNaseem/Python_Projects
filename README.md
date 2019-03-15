@@ -36,3 +36,7 @@ mapIt.py
 weather.py
 - weather.py opens by default the local weather when I run it
 - or accepts command line with the city or country name.
+
+lucky.py
+- lucky.py automatically opens a browser with
+- all the top search results in new tabs
