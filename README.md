@@ -13,10 +13,10 @@ madLips.py
 mcb.py
 - mcb.pyw - Saves and loads pieces of text to the clipboard.
 - Usage: py.exe mcb.pyw save <keyword> - Saves clipboard to keyword. 	leng(argv) == 3
-#py.exe mcb.pyw delete <keyword> - delete keyword from the shelf.	leng(argv) == 3
-#py.exe mcb.pyw <keyword> - Loads keyword to clipboard.			leng(argv) == 2
-#py.exe mcb.pyw list - Loads all keywords to clipboard.			leng(argv) == 2
-#py.exe mcb.pyw delete - delete all keywords.
+- py.exe mcb.pyw delete <keyword> - delete keyword from the shelf.	leng(argv) == 3
+- py.exe mcb.pyw <keyword> - Loads keyword to clipboard.			leng(argv) == 2
+- py.exe mcb.pyw list - Loads all keywords to clipboard.			leng(argv) == 2
+- py.exe mcb.pyw delete - delete all keywords.
 
 randomQuizGenerator.py
 - randomQuizGenerator.py - Creates quizzes with questions and answers in
@@ -43,3 +43,7 @@ lucky.py
 
 downloadXkcd.py
 - downloads all the comics in xkcd.com.
+
+period.py
+- a program to control and keep track of the ovulation and highest and least pregnancy
+- probability. It allows you to find out when you'll be most fertile.
