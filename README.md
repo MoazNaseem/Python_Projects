@@ -47,3 +47,6 @@ downloadXkcd.py
 period.py
 - a program to control and keep track of the ovulation and highest and least pregnancy
 - probability. It allows you to find out when you'll be most fertile.
+
+commandLineEmailer.py
+- takes and email address and a string and logs into your email account and sends an email of the string to the provided address. 

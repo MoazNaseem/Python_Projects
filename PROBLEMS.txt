@@ -1,6 +1,21 @@
 This file to store the technical problems that will face me in the future.
 
-The problem:
--WebDriverException: Message: 'geckodriver' executable needs to be in PATH.
-The solution:
--Download the last version of geckodriver and extract it, and move the excutable file to the PATH: /usr/local/bin.
+# The problem:
+	WebDriverException: Message: 'geckodriver' executable needs to be in PATH.
+# The solution:
+	Download the last version of geckodriver and extract it, and move the excutable file to the PATH: /usr/local/bin.
+
+# The problem:
+	In the commandlineemailer.py it returned the error,
+	selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: [id="login-passwd"] 
+	because the element takes some time to load in the page.
+	Any time you submit something, and a page needs to load, you need to have some sort of wait. It is literally trying to find the password element while the former username and submit button are still likely rendered on the DOM. Certainly before the password field has rendered.
+	This is why running it one command at a time works. The page has time to load when you are manually stepping through the code.
+
+# The solution:
+	You need to add wait. so first you:
+	import selenium.webdriver.support.ui as ui
+	then you make a wait variable.
+	wait = ui.WebDriverWait(driver, 10)
+	then you add the wait after the submit.
+	wait.until(lambda driver: driver.find_element_by_id('login-passwd'))
