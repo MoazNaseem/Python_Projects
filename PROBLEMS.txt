@@ -19,3 +19,20 @@ This file to store the technical problems that will face me in the future.
 	wait = ui.WebDriverWait(driver, 10)
 	then you add the wait after the submit.
 	wait.until(lambda driver: driver.find_element_by_id('login-passwd'))
+
+# The problem:
+	In the imageSiteDownloader.py after calling 
+	res = requests.get(url)
+	it gave me this error:
+	requests.exceptions.HTTPError: 503 Server Error: Service Temporarily Unavailable for url: https://pexels.com/
+# The solution:
+	was pretending to be a real browser by providing a User-Agent header.
+	res = requests.get(url, headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36"})
+
+# The problem:
+	In pexelsDownloader.py it was downloading only the first 30 images in every search since the other images doesn't
+	appear untill I scroll down, and then the page loads the rest of the images with xhr reqest.
+# The solution:
+	Using devtools of browser, I found the actual xhr request and then used it to get all the data. And then you can
+	parse from the HTML I got from the xhr request. "Actually I didn't solve it alone, and still some parts of the
+	code aren't really clear to me, but I will keep reading."

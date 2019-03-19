@@ -50,3 +50,8 @@ period.py
 
 commandLineEmailer.py
 - takes and email address and a string and logs into your email account and sends an email of the string to the provided address. 
+
+pexelsDownloader.py
+- downloads all the images related to a given keyword from pexels.com and create a folder and saves them into. 
+
+
