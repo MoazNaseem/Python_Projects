@@ -30,9 +30,9 @@ This file to store the technical problems that will face me in the future.
 	res = requests.get(url, headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36"})
 
 # The problem:
-	In pexelsDownloader.py it was downloading only the first 30 images in every search since the other images doesn't
+	In pexelsDownloader.py it was downloading only the first 30 images from every search's first page, becausethe other images don't
 	appear untill I scroll down, and then the page loads the rest of the images with xhr reqest.
 # The solution:
-	Using devtools of browser, I found the actual xhr request and then used it to get all the data. And then you can
-	parse from the HTML I got from the xhr request. "Actually I didn't solve it alone, and still some parts of the
-	code aren't really clear to me, but I will keep reading."
+	Using devtools of the browser, I found the actual xhr request that appeats when I start scrollin down, and then used it to get the total number of pages for that search, after that you can itterate through every page updating your url with the number of page. While doing that I get the images from each page and store them in a list called imgs. Every page contains 30 images and the info of each image separated from the info of the next image with a 'infiniteScrollingAppender.append' method wich you can detect it. I ignore the data before the first 'infiniteScrollingAppender.append' since it doesn't contain any images, and using .split('infiniteScrollingAppender.append')[1:], I get all the data of the 30 pictures in this page, but that's not all, you still need to iterate through the imgs list to check one img at a time and you'll find that every element in that list doesn't contain a valid HTML, since it uses backslash to escape the single and douple quotes, so you need to get them back to get a valid HTML, you can do that using .replace() method. Now you got a valid HTML for each img, you can parse the url corresponding for each img using soup.select('.photo-item__img')[0].get('srcset') and then you can download that img.
+	https://stackoverflow.com/questions/55228713/how-to-load-the-full-web-page-before-start-downloading-with-requests-get/55235301?noredirect=1#comment97236923_55235301
+
