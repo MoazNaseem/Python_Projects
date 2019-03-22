@@ -1,0 +1,44 @@
+This file to store the technical problems that will face me in the future.
+
+# The problem:
+	WebDriverException: Message: 'geckodriver' executable needs to be in PATH.
+# The solution:
+	Download the last version of geckodriver and extract it, and move the excutable file to the PATH: /usr/local/bin.
+
+# The problem:
+	In the commandlineemailer.py it returned the error,
+	selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: [id="login-passwd"] 
+	because the element takes some time to load in the page.
+	Any time you submit something, and a page needs to load, you need to have some sort of wait. It is literally trying to find the password element while the former username and submit button are still likely rendered on the DOM. Certainly before the password field has rendered.
+	This is why running it one command at a time works. The page has time to load when you are manually stepping through the code.
+
+# The solution:
+	You need to add wait. so first you:
+	import selenium.webdriver.support.ui as ui
+	then you make a wait variable.
+	wait = ui.WebDriverWait(driver, 10)
+	then you add the wait after the submit.
+	wait.until(lambda driver: driver.find_element_by_id('login-passwd'))
+
+# The problem:
+	In the imageSiteDownloader.py after calling 
+	res = requests.get(url)
+	it gave me this error:
+	requests.exceptions.HTTPError: 503 Server Error: Service Temporarily Unavailable for url: https://pexels.com/
+# The solution:
+	was pretending to be a real browser by providing a User-Agent header.
+	res = requests.get(url, headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36"})
+
+# The problem:
+	In pexelsDownloader.py it was downloading only the first 30 images from every search's first page, becausethe other images don't
+	appear untill I scroll down, and then the page loads the rest of the images with xhr reqest.
+# The solution:
+	Using devtools of the browser, I found the actual xhr request that appeats when I start scrollin down, and then used it to get the total number of pages for that search, after that you can itterate through every page updating your url with the number of page. While doing that I get the images from each page and store them in a list called imgs. Every page contains 30 images and the info of each image separated from the info of the next image with a 'infiniteScrollingAppender.append' method wich you can detect it. I ignore the data before the first 'infiniteScrollingAppender.append' since it doesn't contain any images, and using .split('infiniteScrollingAppender.append')[1:], I get all the data of the 30 pictures in this page, but that's not all, you still need to iterate through the imgs list to check one img at a time and you'll find that every element in that list doesn't contain a valid HTML, since it uses backslash to escape the single and douple quotes, so you need to get them back to get a valid HTML, you can do that using .replace() method. Now you got a valid HTML for each img, you can parse the url corresponding for each img using soup.select('.photo-item__img')[0].get('srcset') and then you can download that img.
+	https://stackoverflow.com/questions/55228713/how-to-load-the-full-web-page-before-start-downloading-with-requests-get/55235301?noredirect=1#comment97236923_55235301
+
+# The problem:
+	Given that error message even after install the module 'openpyxl'
+	ModuleNotFoundError: No module named 'openpyxl'
+# The solution:
+	I need to specify the python version I want to install this module to, for example using the line 'pip install openpyxl' will install the module but for python2 and since I'm using python3, so it wasn't working.
+	'python3 -m pip install openpyxl' solves the problem. 
