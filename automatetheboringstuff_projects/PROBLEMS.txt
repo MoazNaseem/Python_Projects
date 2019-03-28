@@ -7,7 +7,7 @@ This file to store the technical problems that will face me in the future.
 
 # The problem:
 	In the commandlineemailer.py it returned the error,
-	selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: [id="login-passwd"] 
+	selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: [id="login-passwd"]
 	because the element takes some time to load in the page.
 	Any time you submit something, and a page needs to load, you need to have some sort of wait. It is literally trying to find the password element while the former username and submit button are still likely rendered on the DOM. Certainly before the password field has rendered.
 	This is why running it one command at a time works. The page has time to load when you are manually stepping through the code.
@@ -21,7 +21,7 @@ This file to store the technical problems that will face me in the future.
 	wait.until(lambda driver: driver.find_element_by_id('login-passwd'))
 
 # The problem:
-	In the imageSiteDownloader.py after calling 
+	In the imageSiteDownloader.py after calling
 	res = requests.get(url)
 	it gave me this error:
 	requests.exceptions.HTTPError: 503 Server Error: Service Temporarily Unavailable for url: https://pexels.com/
@@ -41,4 +41,12 @@ This file to store the technical problems that will face me in the future.
 	ModuleNotFoundError: No module named 'openpyxl'
 # The solution:
 	I need to specify the python version I want to install this module to, for example using the line 'pip install openpyxl' will install the module but for python2 and since I'm using python3, so it wasn't working.
-	'python3 -m pip install openpyxl' solves the problem. 
+	'python3 -m pip install openpyxl' solves the problem.
+
+# The problem:
+	in multiplicationTable.py the script was running fine as long as I try to run it from the Python IDLE
+	but when running the script from the commandline, this error occurs.
+	from: can't read /var/mail/openpyxl
+	from: can't read /var/mail/openpyxl.utils
+# The solution:
+	add the shebang line #! /usr/bin/python3 solves the problem, otherwise the default shell will execute it and it will bail out at the 'from' keyword. (Incidentally, 'from' is the name of a command line utility which prints names of those who have sent mail to the given username, so that's why it tries to access the mailboxes).
