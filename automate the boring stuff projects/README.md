@@ -23,14 +23,14 @@ randomQuizGenerator.py
 - random order, along with the answer key.
 
 selectiveCopy.py
-- select specific file format like (.pdf, .py) and move them to a separat folders and ignore the
+- select specific file format like (.pdf, .py) and move them to a separat folders and ignore the 
 - repeated files. Then to back them up to a ZIP file.
 
 walk.py
 - walk through the tree folder.
 
 mapIt.py
-- Launches a map in the browser using an address from the
+- Launches a map in the browser using an address from the 
 - command line or clipboard.
 
 weather.py
@@ -49,11 +49,9 @@ period.py
 - probability. It allows you to find out when you'll be most fertile.
 
 commandLineEmailer.py
-- takes and email address and a string and logs into your email account and sends an email of the string to the provided address.
+- takes and email address and a string and logs into your email account and sends an email of the string to the provided address. 
 
 pexelsDownloader.py
-- downloads all the images related to a given keyword from pexels.com and create a folder and saves them into.
+- downloads all the images related to a given keyword from pexels.com and create a folder and saves them into. 
 
-multiplicationTable.py
-- takes a number from the user and create a simple spreadsheet multiplication talble for it.
 
