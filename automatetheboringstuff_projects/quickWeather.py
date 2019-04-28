@@ -31,6 +31,9 @@ def find_city_id(content):
     for i in range(len(content)):
         if content[i]['name'] == cityName and content[i]['country'] == country:
             cityId = content[i]['id']
+        else:
+            print('City was not found.')
+            sys.exit()
     get_page(cityId)
 
 
